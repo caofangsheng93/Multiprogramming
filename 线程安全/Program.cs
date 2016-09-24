@@ -36,9 +36,10 @@ namespace 线程安全
         /// </summary>
         public void DoDivide()
         {
-            lock (this)//确保只有一个线程，能够进入代码快
+            
+            lock(myLock)//确保只有一个线程，能够进入代码快
             {
-                for (int i = 0; i < 10000000; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     //返回随机数，随机数在[1，5)之间
                     num1 = rmd.Next(1, 5);
